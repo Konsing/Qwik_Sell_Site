@@ -1,1 +1,29 @@
-<p>product-list works!</p>
+<div class="container">
+    <nav class="navbar">
+      <div class="navbar-brand">Qwik Sell</div>
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Add Product</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+      </ul>
+    </nav>
+  
+    <div class="content">
+      <h1>Products</h1>
+      <div class="product-list">
+        <div class="product-card" *ngFor="let product of products">
+          <img [src]="product.imageUrl" alt="{{ product.name }}">
+          <div class="product-info">
+            <h2>{{ product.name }}</h2>
+            <p>{{ product.description }}</p>
+            <p class="price">{{ product.price | currency }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <footer class="footer">
+      <p>&copy; 2024 Qwik Sell. All rights reserved.</p>
+    </footer>
+  </div>
+  

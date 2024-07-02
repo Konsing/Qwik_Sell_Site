@@ -1,11 +1,9 @@
-import { mergeApplicationConfig, ApplicationConfig } from '@angular/core';
-import { provideServerRendering } from '@angular/platform-server';
-import { appConfig } from './app.config';
+import { ApplicationConfig } from '@angular/core';
+import { provideHttpClient } from '@angular/common/http';
 
-const serverConfig: ApplicationConfig = {
+export const config: ApplicationConfig = {
   providers: [
-    provideServerRendering()
-  ]
+    provideHttpClient(),
+    // Add other providers here if needed
+  ],
 };
-
-export const config = mergeApplicationConfig(appConfig, serverConfig);

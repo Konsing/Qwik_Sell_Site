@@ -3,7 +3,13 @@ import { CommonEngine } from '@angular/ssr';
 import express from 'express';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
-import bootstrap from './src/main.server';
+import { bootstrap } from './src/main.server';
+
+bootstrap().then((ref) => {
+  console.log('Server-side application bootstrapped successfully.');
+}).catch(err => {
+  console.error('Error bootstrapping server-side application:', err);
+});
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
@@ -19,10 +25,11 @@ export function app(): express.Express {
 
   // Example Express Rest API endpoints
   // server.get('/api/**', (req, res) => { });
+  
   // Serve static files from /browser
-  server.get('**', express.static(browserDistFolder, {
+  server.get('*.*', express.static(browserDistFolder, {
     maxAge: '1y',
-    index: 'index.html',
+    index: false
   }));
 
   // All regular routes use the Angular engine
