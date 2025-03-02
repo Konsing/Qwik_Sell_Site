@@ -16,6 +16,7 @@ SQLALCHEMY_DATABASE_URL = get_env_variable("SQLALCHEMY_DATABASE_URL")
 SECRET_KEY = get_env_variable("SECRET_KEY")
 ALGORITHM = get_env_variable("ALGORITHM")
 ACCESS_TOKEN_EXPIRE_MINUTES = int(get_env_variable("ACCESS_TOKEN_EXPIRE_MINUTES"))
+REFRESH_TOKEN_EXPIRE_DAYS = int(get_env_variable("REFRESH_TOKEN_EXPIRE_DAYS"))
 
 # # AWS variables are not required in testing
 # AWS_ACCESS_KEY_ID = get_env_variable("AWS_ACCESS_KEY_ID", required=not TESTING)

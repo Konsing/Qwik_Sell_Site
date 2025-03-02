@@ -9,7 +9,7 @@ from .routes.auth import router as auth_router
 from .routes.health import router as health_router
 from .routes.products import router as products_router
 
-# models.Base.metadata.create_all(bind=engine)
+models.Base.metadata.create_all(bind=engine)
 
 origins = [
     "http://localhost:3000",
