@@ -1,4 +1,3 @@
-// Components/FeaturedCarousel.js
 import React, { useState, useEffect } from 'react';
 import './FeaturedCarousel.css';
 
@@ -25,25 +24,47 @@ const featuredProducts = [
 
 function FeaturedCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const totalSlides = featuredProducts.length;
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentIndex(prev => (prev + 1) % featuredProducts.length);
-    }, 5000); // Change slide every 5 seconds
-
+      setCurrentIndex(prev => (prev + 1) % totalSlides);
+    }, 5000);
     return () => clearInterval(timer);
-  }, []);
+  }, [totalSlides]);
 
-  const { name, image, description } = featuredProducts[currentIndex];
+  const goToPrevious = () => {
+    setCurrentIndex((currentIndex - 1 + totalSlides) % totalSlides);
+  };
+
+  const goToNext = () => {
+    setCurrentIndex((currentIndex + 1) % totalSlides);
+  };
 
   return (
-    <div className="carousel">
-      <img src={image} alt={name} className="carousel-image" />
+    <section className="carousel" aria-label="Featured Products Carousel">
+      <img 
+        src={featuredProducts[currentIndex].image} 
+        alt={featuredProducts[currentIndex].name} 
+        className="carousel-image" 
+      />
       <div className="carousel-caption">
-        <h2>{name}</h2>
-        <p>{description}</p>
+        <h2>{featuredProducts[currentIndex].name}</h2>
+        <p>{featuredProducts[currentIndex].description}</p>
       </div>
-    </div>
+      <button className="carousel-control prev" onClick={goToPrevious} aria-label="Previous Slide">&#10094;</button>
+      <button className="carousel-control next" onClick={goToNext} aria-label="Next Slide">&#10095;</button>
+      <div className="carousel-indicators">
+        {featuredProducts.map((_, idx) => (
+          <button 
+            key={idx} 
+            className={`indicator ${idx === currentIndex ? 'active' : ''}`}
+            onClick={() => setCurrentIndex(idx)}
+            aria-label={`Slide ${idx + 1}`}
+          />
+        ))}
+      </div>
+    </section>
   );
 }
 

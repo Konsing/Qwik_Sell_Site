@@ -1,10 +1,14 @@
-/* CartPage.css */
+.cart-page {
+  background-color: #f4f4f4;
+  min-height: 100vh;
+}
+
 .cart-content {
-    padding: 50px;
-    text-align: center;
-    background-color: #fff;
-    margin: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
+  padding: 50px;
+  text-align: center;
+  background-color: #fff;
+  margin: 20px auto;
+  max-width: 800px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}

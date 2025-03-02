@@ -1,17 +1,17 @@
-// Pages/CartPage.js
 import React from 'react';
 import Header from '../Components/Header';
 import Footer from '../Components/Footer';
 import '../Styles/CartPage.css';
 
 function CartPage() {
+  // For demonstration, assume the cart is empty.
   return (
     <div className="cart-page">
       <Header />
-      <div className="cart-content">
+      <main className="cart-content">
         <h2>Your Cart</h2>
         <p>No items in your cart yet.</p>
-      </div>
+      </main>
       <Footer />
     </div>
   );

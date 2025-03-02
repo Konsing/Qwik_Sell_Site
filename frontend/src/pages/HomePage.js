@@ -1,4 +1,3 @@
-// Pages/HomePage.js
 import React from 'react';
 import Header from '../Components/Header';
 import FeaturedCarousel from '../Components/FeaturedCarousel';
@@ -7,7 +6,7 @@ import Footer from '../Components/Footer';
 import '../Styles/HomePage.css';
 
 function HomePage() {
-  // Dummy product data with 8 products per category using different images
+  // Dummy product data for different categories
   const dealsProducts = [
     { id: 1, name: "Discounted CPU", image: "/images/prod1.png" },
     { id: 2, name: "Budget Motherboard", image: "/images/prod2.png" },
@@ -30,7 +29,7 @@ function HomePage() {
     { id: 16, name: "New Power Supply", image: "/images/prod16.png" },
   ];
 
-  const graphicsCards = [
+  const topRated = [
     { id: 17, name: "NVIDIA RTX 3080", image: "/images/prod17.png" },
     { id: 18, name: "AMD Radeon RX 6800", image: "/images/prod18.png" },
     { id: 19, name: "NVIDIA GTX 1660", image: "/images/prod19.png" },
@@ -44,12 +43,12 @@ function HomePage() {
   return (
     <div>
       <Header />
-      <div className="home-page">
+      <main className="home-page">
         <FeaturedCarousel />
         <ProductRow title="Deals" products={dealsProducts} />
         <ProductRow title="Newest Arrivals" products={newestArrivals} />
-        <ProductRow title="Graphics Cards" products={graphicsCards} />
-      </div>
+        <ProductRow title="Top Rated" products={topRated} />
+      </main>
       <Footer />
     </div>
   );

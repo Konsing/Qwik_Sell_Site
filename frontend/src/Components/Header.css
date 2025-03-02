@@ -1,26 +1,66 @@
-/* Header.css */
 .header {
-  background-color: #fff;
-  padding: 15px 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 15px 30px;
   border-bottom: 2px solid #e0e0e0;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
 }
 
-.logo h1 {
+.header-left {
+  flex: 1;
+}
+
+.logo {
   margin: 0;
   font-size: 1.8rem;
   font-weight: bold;
   color: #333;
 }
 
+.header-center {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.search-form {
+  display: flex;
+  width: 100%;
+  max-width: 500px;
+}
+
+.search-form input {
+  flex: 1;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 25px 0 0 25px;
+  outline: none;
+  font-size: 1rem;
+}
+
+.search-form button {
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-left: none;
+  border-radius: 0 25px 25px 0;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.header-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
 .nav-menu ul {
   list-style: none;
+  display: flex;
   margin: 0;
   padding: 0;
-  display: flex;
 }
 
 .nav-menu li {
